@@ -103,7 +103,7 @@ nav ul li a:hover::after{
     color: #fff;
 }
 .sub-title{
-    font-size: 60px;
+    font-size: 40px;
     font-weight: 600;
     color: #fff;
 }
@@ -217,80 +217,73 @@ a.link{
 }
 
 /*------------------portfolio-------------*/
-#portfolio{
-    padding: 50px 0;
-}
-.work-list{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 40px;
-    margin-top: 50px;
-}
-.work{
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
-}
-.work img{
-    width: 100%;
-    border-radius: 10px;
-    display: block;
-    transition: transform 0.5s;
-}
-.layer{
-    width: 100%;
-    height: 0;
-    background: linear-gradient(rgba(0,0,0,0.6), #ff004f);
-    border-radius: 10px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    overflow: hidden;
+.project-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    padding: 0 40px;
-    text-align: center;
-    font-size: 14px;
-    transition: height 0.5s;
+    text-decoration: none;
+    justify-content: flex-start;
+    padding: 20px 0 50px;
+    margin: 0 auto;
 }
-.layer h3{
-    font-weight: 500;
+.project-item {
+    width: 80%;
+    padding: 15px;
     margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #151515;
+    font-size: 1em;
+    text-align: left;
+    border-radius: 10px;
+    color: #bbbbbb;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative;
 }
-.layer a{
-    margin-top: 20px;
-    color: #ff004f;
+.project-item a{
     text-decoration: none;
-    font-size: 18px;
-    line-height: 60px;
-    background: #fff;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    text-align: center;
+    color: inherit;
 }
-.work:hover img{
-    transform: scale(1.1);
+.project-item img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+}
 
+.project-content {
+    padding: 15px;
 }
-.work:hover .layer{
-    height: 100%;
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-.btn {
-    display: block;
-    margin: 50px auto;
-    width: fit-content;
-    border: 1px solid #ff004f;
-    padding: 14px 50px;
-    border-radius: 6px;
-    text-decoration: none;
-    color: #fff;
-    transition: background 0.5s;
+.project-content {
+    padding: 15px;
 }
-.btn:hover {
-    background: #ff004f;
+.project-content h3{
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+.project-item .fa-up-right-from-square {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    z-index: 10;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 10px 15px;
+}
+.tag {
+    background-color: #333333;
+    padding: 5px 10px;
+    margin-right: 10px;
+    margin-top: 0px;
+    border-radius: 5px;
+    font-size: 0.9em;
 }
 /*-----------------contact-----------------*/
 .contact-left {
@@ -325,10 +318,10 @@ a.link{
 .btn.btn2{
     display: inline-block;
     background: #ff004f;
+    border-radius: 8px;
 }
 .contact-right form{
     width: 100%;
-
 }
 form input, form textarea{
     width: 100%;
@@ -341,7 +334,7 @@ form input, form textarea{
     font-size: 18px;
     border-radius: 6px;
 }
-form .btn2{
+form .btn1, .btn2{
     padding: 14px 60px;
     font-size: 18px;
     margin-top: 20px;
@@ -400,7 +393,7 @@ nav .fas{
         cursor: pointer;
     }
     .sub-title{
-        font-size: 40px;
+        font-size: 24px;
     }
     .about-col-1, .about-col-2{
         flex-basis: 100%;
