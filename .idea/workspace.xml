@@ -4,7 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e2df8dae-df3d-4cb5-8f47-d1597cc99885" name="Changes" comment="Initial Commit&#10;&#10;&quot;" />
+    <list default="true" id="e2df8dae-df3d-4cb5-8f47-d1597cc99885" name="Changes" comment="Initial Commit&#10;&#10;&quot;">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/FocusMath.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Jason Liu Resume.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Return STEM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/Return STEM.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/background_blank.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/my-cv.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/phone-background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/rutgers.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/work-1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/work-2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/images/work-3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,6 +95,8 @@
       <workItem from="1710041081501" duration="52000" />
       <workItem from="1710629676480" duration="16000" />
       <workItem from="1712437987799" duration="335000" />
+      <workItem from="1713048669742" duration="86000" />
+      <workItem from="1721779702999" duration="154000" />
     </task>
     <task id="LOCAL-00001" summary="Initial Commit&#10;&#10;&quot;">
       <created>1688346217024</created>
