@@ -95,7 +95,7 @@ nav ul li a:hover::after{
     border-radius: 15px;
 }
 .about-col-2{
-    flex-basis: 60%;
+    flex-basis: 70%;
 }
 .about{
     font-size: 30px;
