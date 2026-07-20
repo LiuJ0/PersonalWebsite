@@ -1,386 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jason Liu</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/2290755188.js" crossorigin="anonymous"></script>
-    <style>
-        a:link { text-decoration: none; }
-        a:visited { text-decoration: none; }
-        a:hover { text-decoration: none; }
-        a:active { text-decoration: none; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jason Liu</title>
+<style>
+  :root {
+    --ink: #1a1a17;
+    --ink-soft: #55534c;
+    --ink-faint: #8a8880;
+    --paper: #faf8f3;
+    --line: #e2ded3;
+    --accent: #3a5a40;
+    --accent-soft: #5c7a62;
+    --sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
 
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.005em;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---- Masthead ---- */
+  header {
+    padding: 88px 0 0;
+  }
+
+  .mast {
+    display: flex;
+    gap: 34px;
+    align-items: flex-start;
+  }
+
+  .portrait {
+    flex-shrink: 0;
+    width: 128px;
+    height: 158px;
+    border: 1px solid var(--line);
+    background: #efece4;
+    object-fit: cover;
+    filter: grayscale(0.15);
+  }
+
+  .portrait-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--sans);
+    font-size: 11px;
+    color: var(--ink-faint);
+    line-height: 1.5;
+    padding: 12px;
+  }
+
+  .name {
+    font-size: 44px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-bottom: 10px;
+  }
+
+  .tagline {
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 42ch;
+  }
+
+  .contact {
+    margin-top: 18px;
+    font-family: var(--sans);
+    font-size: 12.5px;
+    letter-spacing: 0.01em;
+    color: var(--ink-soft);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+  }
+
+  .contact a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 1px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+
+  .contact a:hover { color: var(--accent); border-color: var(--accent-soft); }
+
+  /* ---- Sections ---- */
+  section { padding: 46px 0 0; }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  .eyebrow::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  p.body { color: var(--ink-soft); margin-bottom: 14px; }
+  p.body:last-child { margin-bottom: 0; }
+
+  a.inline {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-soft);
+  }
+  a.inline:hover { color: var(--ink); }
+
+  /* ---- Interests ---- */
+  ul.interests {
+    list-style: none;
+    margin-top: 18px;
+  }
+
+  ul.interests li {
+    position: relative;
+    padding-left: 26px;
+    margin-bottom: 11px;
+    color: var(--ink-soft);
+  }
+
+  ul.interests li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--accent-soft);
+  }
+
+  ul.interests li strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ---- Publication list ---- */
+  .pub {
+    display: grid;
+    grid-template-columns: 78px 1fr;
+    gap: 4px 18px;
+    padding: 16px 0;
+    border-top: 1px solid var(--line);
+  }
+  .pub:first-of-type { border-top: none; }
+
+  .pub-venue {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    color: var(--ink-faint);
+    padding-top: 5px;
+    line-height: 1.5;
+  }
+
+  .pub-title {
+    font-size: 18px;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  .pub-title em { color: var(--accent); font-style: italic; }
+
+  .pub-meta {
+    grid-column: 2;
+    font-size: 15px;
+    color: var(--ink-faint);
+    margin-top: 3px;
+  }
+
+  .pub-meta a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .pub-meta a:hover { border-color: var(--accent-soft); }
+
+  .pub-meta .me { color: var(--ink); font-weight: 700; }
+
+  .subhead {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 28px 0 6px;
+  }
+  .subhead:first-child { margin-top: 0; }
+
+  /* ---- Two-column meta blocks ---- */
+  .rows { margin-top: 4px; }
+
+  .row {
+    display: grid;
+    grid-template-columns: 78px 1fr;
+    gap: 18px;
+    padding: 12px 0;
+    border-top: 1px solid var(--line);
+    color: var(--ink-soft);
+  }
+  .row:first-child { border-top: none; }
+
+  .row .yr {
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--ink-faint);
+    padding-top: 3px;
+  }
+
+  .row .what strong { color: var(--ink); font-weight: 600; }
+  .row .what span { display: block; font-size: 15px; color: var(--ink-faint); }
+
+  /* ---- Footer ---- */
+  footer {
+    margin-top: 56px;
+    padding: 30px 0 60px;
+    border-top: 1px solid var(--line);
+    font-family: var(--sans);
+    font-size: 12px;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  footer a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line); }
+  footer a:hover { color: var(--accent); }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 560px) {
+    body { font-size: 17px; }
+    header { padding-top: 54px; }
+    .mast { flex-direction: column; gap: 22px; }
+    .name { font-size: 36px; }
+    .portrait { width: 116px; height: 144px; }
+    .pub, .row { grid-template-columns: 1fr; gap: 4px; }
+    .pub-venue { padding-top: 0; }
+    .pub-meta, .row .what { grid-column: 1; }
+    .row .yr { padding-top: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
 </head>
 <body>
-<div id="header">
-    <div class="container">
-        <nav>
-            <ul id="sidemenu">
-                <li><a href="#header">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="images/Jason%20Liu%20Resume%2006052026.pdf" download>Resume</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <i class="fas fa-xmark" onclick="closemenu() "></i>
-            </ul>
-            <i class="fas fa-bars" onclick="openmenu()"></i>
-        </nav>
-        <div class="header-text">
-            <!-- <p>Developer & Data Scientist </p> -->
-            <div class="typewriter">
-                <h1 type="typed"><span>Jason Liu</span><br></h1>
-            </div>
+<div class="wrap">
+
+  <header>
+    <div class="mast">
+      <img class="portrait" src="images/jl photo.png" alt="Jason Liu">
+      <div>
+        <h1 class="name">Jason Liu</h1>
+        <p class="tagline">Math & CS undergraduate at Rutgers, applying to statistics PhD programs.</p>
+        <div class="contact">
+          <a href="mailto:jasonxliu05@gmail.com">jasonxliu05@gmail.com</a>
+          <a href="https://jasonxliu.com">jasonxliu.com</a>
+          <a href="images/Jason Liu Resume 06052026.pdf">CV (PDF)</a>
         </div>
+      </div>
     </div>
+  </header>
+
+  <section id="about">
+    <div class="eyebrow">About</div>
+    <p class="body">I aim to solve complex problems arising in the real world by designing rigorous methods with provable guarantees, and I am particularly interested in problems rooted in deep mathematical theory. I am particularly interested in:</p>
+    <ul class="interests">
+      <li><strong>Mathematical statistics</strong>: empirical process theory, non-parametric methods, assumption-light methods.</li>
+      <li><strong>Applied analysis</strong>: interacting particle systems, optimal transport, and partial differential equations.</li>
+      <li><strong>Applications to genetics</strong>: network analysis, disease gene discovery, and large-scale hypothesis testing.</li>
+    </ul>
+    <p class="body" style="margin-top:18px;">I am fortunate to have been mentored by <a class="inline" href="https://xinglab.genetics.rutgers.edu/">Dr. Jinchuan Xing</a> (Rutgers Genetics), <a class="inline" href="https://sites.google.com/view/minxu">Dr. Min Xu</a> (Rutgers Statistics), and <a class="inline" href="https://sites.google.com/view/rosenzweig/home">Dr. Matthew Rosenzweig</a> (CMU Math).</p>
+  </section>
+
+  <section id="publications">
+    <div class="eyebrow">Selected work</div>
+
+    <div class="subhead">Under review</div>
+    <div class="pub">
+      <div class="pub-venue">NeurIPS<br>2026</div>
+      <div>
+        <div class="pub-title">Estimation of the sub-Gaussian parameter</div>
+        <div class="pub-meta"><span class="me">Liu, J.</span>, Xu, M., Xing, J. &nbsp;·&nbsp; <a href="https://arxiv.org/abs/2606.06384">arXiv</a></div>
+      </div>
+    </div>
+    <div class="pub">
+      <div class="pub-venue">Genome<br>Research</div>
+      <div>
+        <div class="pub-title">Beyond single algorithms: a framework for validating and aggregating active modules in genetic interaction networks</div>
+        <div class="pub-meta"><span class="me">Liu, J.</span>, Xu, M., Xing, J. &nbsp;·&nbsp; <a href="https://www.biorxiv.org/content/10.1101/2025.10.06.680790v2">bioRxiv</a></div>
+      </div>
+    </div>
+
+    <div class="subhead">Published</div>
+    <div class="pub">
+      <div class="pub-venue">PNAS<br>2024</div>
+      <div>
+        <div class="pub-title">Maternal genetic variants in kinesin motor domains prematurely increase egg aneuploidy</div>
+        <div class="pub-meta">Biswas, L., Tyc, K., … <span class="me">Liu, J.</span>, … Xing, J., Schindler, K. &nbsp;·&nbsp; Featured in Rutgers Today</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="posters">
+    <div class="eyebrow">Posters</div>
+    <div class="rows">
+      <div class="row">
+        <div class="yr">2025</div>
+        <div class="what"><strong>A novel algorithm for active module aggregation based on the Earth Mover's Distance</strong><span>MABC 2025, Philadelphia · <a class="inline" href="https://drive.google.com/file/d/1RKiP7q9Luxo03oc2CIjlhVT3JWPtZWxc/view?usp=sharing">PDF</a></span></div>
+      </div>
+      <div class="row">
+        <div class="yr">2025</div>
+        <div class="what"><strong>Systematic assessment of active module identification algorithms</strong><span>ASHG 2025, Boston & MABC 2024, Philadelphia · <a class="inline" href="https://drive.google.com/file/d/1l0pfvY_hCIWT6pRSB6AwC3QskkDfExO-/view?usp=sharing">PDF</a></span></div>
+      </div>
+      <div class="row">
+        <div class="yr">2025</div>
+        <div class="what"><strong>LLM world models for efficient exploration in automated theorem proving</strong><span>21st Aresty Undergraduate Research Symposium, Piscataway · <a class="inline" href="https://drive.google.com/file/d/117eTyk2KO9Ot5TVqcB1BzQgUJ-XR4czk/view">PDF</a></span></div>
+      </div>
+      <div class="row">
+        <div class="yr">2023</div>
+        <div class="what"><strong>Using PAPER to identify active modules in an aneuploidy dataset</strong><span>MABC 2023, Philadelphia · <a class="inline" href="https://drive.google.com/file/d/1QU8DpQG74kDUmhKH1dOWiacdw17cgKLQ/view">PDF</a></span></div>
+      </div>
+      <div class="row">
+        <div class="yr">2022</div>
+        <div class="what"><strong>Predicting embryonic aneuploidy rate and identifying candidate genes in IVF patients using synonymous variants</strong><span>MABC 2022, Philadelphia · Trainee Award · <a class="inline" href="https://drive.google.com/file/d/1L2HH07yfcmm7JJBmk7_TmEY5GOh2QNTD/view">PDF</a></span></div>
+      </div>
+    </div>
+  </section>
+<section id="talks">
+    <div class="eyebrow">Talks &amp; presentations</div>
+    <div class="rows">
+      <div class="row">
+        <div class="yr">2025</div>
+        <div class="what"><strong>Aggregation of active module identification algorithms</strong><span>Research in Progress Seminar, Dept. of Genetics, Rutgers</span></div>
+      </div>
+      <div class="row">
+        <div class="yr">2025</div>
+        <div class="what"><strong>Conformal mappings and the Riemann mapping theorem</strong><span>Directed Reading Program, Dept. of Mathematics, Rutgers · Honorable Mention</span></div>
+      </div>
+      <div class="row">
+        <div class="yr">2025</div>
+        <div class="what"><strong>Extracting biological insights from gene networks</strong><span>Joint epigenetics group meeting, Dept. of Genetics, Rutgers</span></div>
+      </div>
+      <div class="row">
+        <div class="yr">2025</div>
+        <div class="what"><strong>Systematic assessment of active module identification algorithms</strong><span>Research in Progress Seminar, Dept. of Genetics, Rutgers</span></div>
+      </div>
+      <div class="row">
+        <div class="yr">2022</div>
+        <div class="what"><strong>Predicting embryonic aneuploidy rate and identifying candidate genes in IVF patients using synonymous variants</strong><span>Lightning Talk, MABC 2022 · Trainee Award</span></div>
+      </div>
+    </div>
+    <p class="body" style="margin-top:18px; font-size:15px; color:var(--ink-faint);">A full list of conference presentations and talks is in my <a class="inline" href="Jason_Liu_CV.pdf">CV</a>.</p>
+  </section>
+
+  <section id="teaching">
+    <div class="eyebrow">Teaching &amp; service</div>
+    <div class="rows">
+      <div class="row">
+        <div class="yr">'25–'26</div>
+        <div class="what"><strong>Peer Instructor</strong><span>Aresty Research Center, Rutgers</span></div>
+      </div>
+      <div class="row">
+        <div class="yr">2024</div>
+        <div class="what"><strong>Grader, Honors Calculus III (Math 291)</strong><span>Dept. of Mathematics, Rutgers</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Jason Liu · New Brunswick, NJ</span>
+    <span><a href="mailto:jasonxliu05@gmail.com">Email</a> · <a href="Jason_Liu_CV.pdf">CV</a></span>
+  </footer>
+
 </div>
-<!-- -----about-------->
-<div id="about">
-    <div class="container">
-        <div class="row">
-
-            <!-- <div class="about-col-1">
-                <img src="images/user.png">
-            </div> -->
-            <div class="about-col-2">
-                <p class="about">
-                    I'm an undergraduate <span>Math + CS </span> major at Rutgers University. 
-                    My primary research interests are in mathematical statistics, applied analysis, and computational genomics. 
-                </p>
-                <div class="tab-titles">
-                    <p class="tab-links active-link" onclick="opentab('experience')">Experience</p>
-                    <p class="tab-links" onclick="opentab('skills')">Skills</p>
-                    <p class="tab-links" onclick="opentab('education')">Education</p>
-                </div>
-                <div class="tab-contents active-tab" id="experience">
-                    <ul>
-                        <li><span>July 2022 - Present</span><br>
-                            <a href="https://xinglab.genetics.rutgers.edu/"><span2> Xing Lab of Genomics</span2></a> - Research Assistant
-                        </li>
-                                                <li>
-                            <span>Sept 2024 - May 2025</span><br>
-                                <a href="https://herowanzhu.github.io/"><span2>Automated Reasoning Group</span2></a> - Research Assistant
-                        </li>
-                    </ul>
-                </div>
-                <div class="tab-contents" id="skills">
-                    <ul>
-                        <!--
-                        <li><span2> Programming Languages </span2> - Python, Bash, R, C++
-                        <li><span2> Presentation and Written Communication</span2></li>
-                        <li><span2> Project Design and Management</span2></li>
-                        <li><span2> Mandarin Chinese</span2></li> -->
-                        <li> <span2> Programming Languages </span2> - Python, Java, Bash, R, C++
-                        <li> <span2> Presentation </span2> and <span2> Written </span2> Communication</li>
-                        <li> <span2> Project </span2> Design and Management</li>
-                        <li> <span2> Mandarin </span2> Chinese</li>
-                    </ul>
-                </div>
-                <div class="tab-contents" id="education">
-                    <ul>
-                        <li><span>2023-2027</span><br><span2>Rutgers University</span2> - Computer Science, Mathematics, B.S.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ---------interests--------------->
-<!-- <div id="interests">
-    <div class="container">
-        <h1 class="sub-title">Interests</h1>
-        <div class="interests-list">
-            <div>
-                <i class="fa-solid fa-code"></i>
-                <h2>Software Development</h2>
-                <p></p>
-                <a href="#"></a>
-            </div>
-            <div>
-                <i class="fa-solid fa-dna"></i>
-                <h2>Genetics</h2>
-                <p></p>
-                <a href="#"></a>
-            </div>
-            <div>
-                <i class="fa-solid fa-graduation-cap"></i>
-                <h2>Education</h2>
-                <p></p>
-                <a href="#"></a>
-            </div>
-        </div>
-    </div>
-</div> -->
-<!-- -----------research------------->
-<div id="portfolio">
-    <div class="container">
-        <h1 class="sub-title">Publications</h1>
-        <div class="project-container">
-                        <div class="project-item">
-                <a href="https://drive.google.com/file/d/117eTyk2KO9Ot5TVqcB1BzQgUJ-XR4czk/view?usp=sharing" style="text-decoration: none">
-                    <i class="fa-solid fa-up-right-from-square"></i>
-                    <div class="project-content">
-                        <h3> LLM World Models for Efficient Exploration in Automated Theorem Proving </h3>
-                        <p><span style="text-decoration: underline">Jason Liu</span>, Wensen Mao, and He Zhu</p><br>
-                        <p>
-                            Automated theorem proving is a fundamental goal in artificial intelligence. Here, we finetuned Qwen2.5-Math-7B to suggest tactics and estimate distance from success, given a partial proof in LEAN. 
-                            We use a best first search method using the estimated distance as a heuristic, which we show leads to promising performance. 
-                        </p>
-                        <br>
-                        <p>
-                            <a style="color: #ff004f" href="https://aresty.rutgers.edu/">21st Aresty Undergraduate Research Conference</a>&nbsp&nbsp Poster Presentation
-                        </p>
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Conference Publication</span>
-                        <span class="tag">Machine Learning</span>
-                        <span class="tag">Python</span>
-                    </div>
-                </a>
-            </div>
-            <div class="project-item">
-                <a href="https://www.pnas.org/doi/10.1073/pnas.2414963121" style="text-decoration: none">
-                    <i class="fa-solid fa-up-right-from-square"></i>
-                    <div class="project-content">
-                        <h3> Maternal genetic variants in kinesin motor domains prematurely increase egg aneuploidy</h3>
-                        <p>Leelati Biswas <i> et al. </i> including <span style="text-decoration: underline">Jason Liu</span> and Jinchuan Xing</p><br>
-                        <p>
-                            In this study we show that KIF genes are associated with aneuploidy in human eggs. Analysis using my module identification methods prioritized these genes as candidates.
-                        </p>
-                        <br>
-                        <p>
-                            <a style="color: #ff004f" href="https://www.pnas.org/">PNAS</a> &nbsp&nbsp Publication
-                        </p>
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Journal Publication</span>
-                        <span class="tag">Genetics</span>
-                        <span class="tag">Python</span>
-                    </div>
-                </a>
-            </div>
-            <div class="project-item">
-                <a href="https://drive.google.com/file/d/1CDix84h1K29IBX6fdTquV_Rnq3DpImzG/view?usp=sharing" style="text-decoration: none">
-                    <i class="fa-solid fa-up-right-from-square"></i>
-                    <div class="project-content">
-                        <h3>Systematic Assessment of Active Module Identification Algorithms</h3>
-                        <span style="text-decoration: underline">Jason Liu</span>, Min Xu, Jinchuan Xing </p><br>
-                        <p>
-                            In this study we systematically compared the performance of four active module identification algorithms across four datasets.
-                        </p>
-                        <p>
-                            We also introduce the Earth Mover's Distance as a metric to compute module similarity. Using this, we show that high performing algorithms produce complementary outputs.
-                        </p>
-                        <p>
-                            We therefore introduce an algorithm that uses spectral clustering to combine the outputs of the four algorithms.
-                        </p>
-                        <br>
-                        <p>
-                            <a style="color: #ff004f" href="https://www.midatlanticbioinformatics.org/">MABC 2024</a>
-                            &nbsp&nbsp Poster Presentation
-                        </p>
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Conference Publication</span>
-                        <span class="tag">Graph Theory</span>
-                        <span class="tag">Algorithm Development</span>
-                        <span class="tag">Python</span>
-                    </div>
-                </a>
-            </div>
-            <div class="project-item">
-                <a href="https://drive.google.com/file/d/1BwEj8JyeYcNIa8LEl60J5rDR4vhZ4P49/view?usp=sharing" style="text-decoration: none">
-                    <i class="fa-solid fa-up-right-from-square"></i>
-                    <div class="project-content">
-                        <h3>Identification and Prioritization of Candidate Genes Associated with Aneuploidy using PGT-A Data</h3>
-                        Weijun Zeng, Jia Xu, <span style="text-decoration: underline">Jason Liu</span>, Diego Marin, Nathan R Treff, Jinchuan Xing</p><br>
-                        <p>
-                            In this study we develop a computational pipeline to identify candidate genes for aneuploidy using GWAS data.
-                        </p>
-                        <br>
-                        <p>
-                            <a style="color: #ff004f" href="https://www.midatlanticbioinformatics.org/">MABC 2024</a>
-                            &nbsp&nbsp Poster Presentation
-                        </p>
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Conference Publication</span>
-                        <span class="tag">Python</span>
-                    </div>
-                </a>
-            </div>
-            <div class="project-item">
-                <a href="https://drive.google.com/file/d/1QU8DpQG74kDUmhKH1dOWiacdw17cgKLQ/view?usp=sharing" style="text-decoration: none">
-                    <i class="fa-solid fa-up-right-from-square"></i>
-                    <div class="project-content">
-                        <h3>Identifying modules in biological networks</h3>
-                        <span style="text-decoration: underline">Jason Liu</span>, Karen Schindler, Min Xu, Jinchuan Xing</p><br>
-                        <p>
-                            In this study, the PAPER (Preferential Attachment Plus Erdos Renyi) model was implemented to partition biological networks into the underlying processes.
-                        </p>
-                        <p>
-                            We show that our algorithm outperforms other leading methods.
-                        </p>
-                        <br>
-                        <p>
-                            <a style="color: #ff004f" href="https://www.midatlanticbioinformatics.org/">MABC 2023</a>
-                            &nbsp&nbsp Poster Presentation
-                        </p>
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Conference Publication</span>
-                        <span class="tag">Graph Theory</span>
-                        <span class="tag">Algorithm Development</span>
-                        <span class="tag">Python</span>
-                    </div>
-                </a>
-            </div>
-            <div class="project-item">
-                <a href="https://drive.google.com/file/d/1L2HH07yfcmm7JJBmk7_TmEY5GOh2QNTD/view?usp=sharing" style="text-decoration: none">
-                    <i class="fa-solid fa-up-right-from-square"></i>
-                    <div class="project-content">
-                        <h3>Using machine learning to predict disease risk</h3>
-                        <p><span style="text-decoration: underline">Jason Liu</span>, Siqi Sun, and Jinchuan Xing</p><br>
-                        <p>
-                            In this study, a machine learning classifier was trained to predict patient aneuploidy risk.
-                        </p>
-                        <p>
-                            Candidate genes were identified using a novel approach.
-                        </p>
-                        <br>
-                        <p>
-                            <a style="color: #ff004f" href="https://www.midatlanticbioinformatics.org/">MABC 2022</a>
-                            &nbsp&nbsp Lightning Talk Speaker, Trainee Award
-                        </p>
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Conference Publication</span>
-                        <span class="tag">Machine Learning</span>
-                        <span class="tag">Genetics</span>
-                        <span class="tag">Python</span>
-                    </div>
-                </a>
-            </div>
-
-        </div>
-    </div>
-</div>
-<div id="portfolio">
-    <div class="container">
-        <h1 class="sub-title">Projects</h1>
-        <!-- Create vertically stacked project cards -->
-        <div class="project-container">
-            <div class="project-item">
-                <a href="https://merry-jalebi-ccaf30.netlify.app/" style="text-decoration: none">
-                    <i class="fa-solid fa-up-right-from-square"></i>
-                    <div class="project-content">
-                         <h3>MarkTeX</h3>
-                            <p>A website builder with markdown-like syntax designed to be used to write notes or tutorials.</p>
-                            <p>Supports LaTeX and interactive dropdowns.</p>
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">React</span>
-                    </div>
-                </a>
-            </div>
-            <div class="project-item">
-                <a href="https://github.com/LiuJ0/FrenetSerretPlotter" style="text-decoration: none">
-                    <i class="fa-solid fa-up-right-from-square"></i>
-                    <div class="project-content">
-                        <h3>Frenet-Serret Plotter</h3>
-                        <p>A short program that plots a parametric curve and its Frenet-Serret basis.</p>
-                    </div>
-                    <div class="project-tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">matplotlib</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- -----------contact-------------->
-<div id="contact">
-    <div class="container">
-        <div class="row">
-            <div class="contact-left">
-                <h1 class="sub-title">Contact Me</h1>
-                <p><i class="fa-solid fa-paper-plane"></i>jasonxliu05@gmail.com</p>
-                <p><i class="fa-solid fa-phone"></i>+1 732-331-4840</p>
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/jasonxliu0"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/people/Jason-Liu/pfbid0uttcyX7mD9n5nLgXDoef6HimmMQyWvAECBrhpcdUtjKbEpkA4A9bK41fG91D9h4Vl/"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://github.com/LiuJ0"><i class="fa-brands fa-github"></i></a>
-                </div>
-                <a href="images/Jason%20Liu%20Resume%2006052026.pdf" download class="btn btn2" style="color: black;">Resume</a>
-            </div>
-            <div class="contact-right">
-                <form name="submit-to-google-sheet">
-                    <input type="text" name="Name" placeholder="Your Name" required>
-                    <input type="email" name="Email" placeholder="Your Email Address" required>
-                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
-                    <button type="submit" class="btn btn2">Submit</button>
-                </form>
-                <span id="msg"></span>
-            </div>
-        </div>
-    </div>
-    <div class="copyright">
-        <p>Copyright© Jason Liu. Updated May 15, 2025.</p>
-    </div>
-</div>
-<script>
-    var tablinks = document.getElementsByClassName("tab-links");
-    var tabcontents = document.getElementsByClassName("tab-contents");
-    function opentab(tabname){
-        for (tablink of tablinks){
-            tablink.classList.remove("active-link");
-        }
-        for (tabcontent of tabcontents){
-            tabcontent.classList.remove("active-tab");
-        }
-        event.currentTarget.classList.add("active-link");
-        document.getElementById(tabname).classList.add("active-tab");
-    }
-</script>
-<script>
-    var sidemenu = document.getElementById("sidemenu");
-
-    function openmenu(){
-        sidemenu.style.right = "0";
-    }
-    function closemenu(){
-        sidemenu.style.right = "-200px";
-    }
-</script>
-
-<script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxXOiXkN48_GS77kua5el1EzZfYCFR-jWa_wT-KZvLHIRoMe-BWdP9d5WXjOiEDYHNH/exec'
-    const form = document.forms['submit-to-google-sheet']
-    const msg = document.getElementById("msg")
-
-    form.addEventListener('submit', e => {
-        e.preventDefault()
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-                msg.innerHTML = "Message sent successfully."
-                setTimeout(function(){
-                    msg.innerHTML = ""
-                }, 5000)
-                form.reset()
-            })
-            .catch(error => console.error('Error!', error.message))
-    })
-</script>
-
-
 </body>
 </html>
